@@ -28,6 +28,13 @@ class Snake:
     def increase_snake_size(self):
         self.add_segment(self.all_segments[-1].position())
 
+    def reset(self):
+        for seg in self.all_segments:
+            seg.goto(1000,1000)
+        self.all_segments.clear()
+        self.create_snake()
+        self.head=self.all_segments[0]
+
     def move_snake(self):
         for segno in range(len(self.all_segments)-1,0,-1):
             x = self.all_segments[segno-1].xcor()

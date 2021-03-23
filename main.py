@@ -33,11 +33,11 @@ while game_on:
         score.update_score()
         winsound.Beep(frequency=FREQUENCY, duration=DURATION)
     if snake.head.xcor() > 285 or snake.head.xcor() < -285 or snake.head.ycor() > 285 or snake.head.ycor() < -285:
-        score.game_over()
-        game_on=False
+        score.reset_game()
+        snake.reset()
     for seg in snake.all_segments[1:]:
         if snake.head.distance(seg)<10:
-            score.game_over()
-            game_on=False
+            score.reset_game()
+            snake.reset()
             break
 screen.exitonclick()
